@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+.header {
+    background-color: #1f2933;
+    color: #ffffff;
+    padding: 25px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.info-card {
+    background-color: #ffffff;
+    margin: 25px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.info-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.info-card ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.controls {
+    background-color: #ffffff;
+    margin: 0 25px 25px 25px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.control-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-box label {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.controls input {
+    padding: 8px;
+    font-size: 14px;
+    min-width: 140px;
+}
+
+.controls button {
+    padding: 9px 18px;
+    font-size: 14px;
+    background-color: #1f2933;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #111827;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 20px;
+    padding: 25px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    min-height: 380px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.data-table th {
+    background-color: #1f2933;
+    color: #ffffff;
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table td {
+    padding: 8px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.good {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.bad {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}

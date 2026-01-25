@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Salary Prediction – Dashboard</title>
+    <link rel="icon" href="{{ url_for('static', filename='head-logo.png') }}">
+
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>Employee Salary Prediction</h1>
+    <p>Machine learning–based income classification dashboard</p>
+</header>
+
+<section class="info-card">
+    <h2>About This Project</h2>
+
+    <p>
+        This project focuses on predicting employee salary categories using
+        demographic and employment attributes from the Adult Census Income dataset.
+        A machine learning classification model is used along with interactive
+        data visualizations for exploratory analysis.
+    </p>
+
+    <ul>
+        <li>
+            <strong>Dataset (Kaggle):</strong>
+            <a href="https://www.kaggle.com/datasets/uciml/adult-census-income" target="_blank">
+                Adult Census Income Dataset
+            </a>
+        </li>
+
+        <li>
+            <strong>Model Notebook:</strong>
+            <a href="https://github.com/Lightning-President-9/Employee-Salary-Prediction_Rohit-Wachnekar/blob/main/Employee_Salary_Prediction.ipynb"
+               target="_blank">
+                Training & Analysis Notebook
+            </a>
+        </li>
+
+        <li>
+            <strong>Base GitHub Repository:</strong>
+            <a href="https://github.com/Lightning-President-9/Employee-Salary-Prediction_Rohit-Wachnekar"
+               target="_blank">
+                Employee Salary Prediction (Main Repo)
+            </a>
+        </li>
+
+        <li>
+            <strong>Deployed Flask Repository:</strong>
+            <a href="https://github.com/Lightning-President-9/employee-salary-prediction"
+               target="_blank">
+                Flask Deployment Repository
+            </a>
+        </li>
+    </ul>
+
+    <p class="disclaimer">
+        ⚠ <strong>Disclaimer:</strong> This project is for educational and
+        demonstrational purposes only. Predictions are probabilistic and
+        must not be used for employment or compensation decisions.
+    </p>
+</section>
+
+<section class="controls">
+
+{% for col, default in placeholder.items() %}
+    <div class="control-box">
+        <label>{{ col.replace('-', ' ').title() }}</label>
+
+        {% if col in encoders %}
+            <select id="{{ col }}">
+                {% for opt in encoders[col] %}
+                    <option value="{{ opt }}"
+                        {% if opt == default %}selected{% endif %}>
+                        {{ opt }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% else %}
+            <input type="number" id="{{ col }}" value="{{ default }}">
+        {% endif %}
+    </div>
+{% endfor %}
+
+<div class="control-box">
+    <button onclick="runPrediction()">Run Prediction</button>
+</div>
+
+</section>
+
+<main class="dashboard">
+
+    <div class="card">
+        <h2>Prediction Result</h2>
+        <div id="table"></div>
+    </div>
+
+    <div class="card">
+        <h2>Income Distribution</h2>
+        <div id="chart1"></div>
+    </div>
+
+    <div class="card">
+        <h2>Age vs Income</h2>
+        <div id="chart2"></div>
+    </div>
+
+    <div class="card">
+        <h2>Education vs Income</h2>
+        <div id="chart3"></div>
+    </div>
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
