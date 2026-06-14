@@ -74,12 +74,5 @@ def predict():
         "prediction": salary
     })
 
-@app.route("/service-status", methods=["GET"])
-def status():
-    return jsonify({
-        "status": "ok",
-        "service": "Employee Salary Prediction Service API"
-    })
-
 if __name__ == "__main__":
     app.run()
